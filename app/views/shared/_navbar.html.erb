@@ -1,0 +1,40 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Home", root_path, class: "navbar-brand" %>
+      <%= link_to "Works", works_path, class: "navbar-brand" %>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+          <% if user_signed_in? %>
+          <li><%= link_to "Account", edit_user_registration_path %></li>
+           <li><%= link_to "Sign Out",destroy_user_session_path,method: :delete,data:[:confirm,"Are you sure?"]%></li>
+         <% else %>
+          <li><%= link_to "Sign Up", new_user_registration_path, class: "active" %></li>
+          <li><%= link_to "Sign In", new_user_session_path, class: "active" %></li>
+        <% end %>
+      </ul>
+
+      <ul class="right-menu text-right ml-auto">
+        <li><%= form_tag(search_path, :method => "get", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search e.g Weriboy...." %></li>
+           <li> <%= submit_tag "Search" %></li>
+            <% end %>
+      </li>
+        <li><i class="fa fa-facebook"></i></li> 
+        <li><i class="fa fa-instagram"></i></li> 
+        <li><i class="fa fa-camera-retro"></i></li> 
+        <li>
+      </ul>
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

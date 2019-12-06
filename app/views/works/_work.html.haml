@@ -1,0 +1,18 @@
+
+%h3
+    Works
+
+%table.table.table-bordered
+    %thead
+        %tr
+            %td Title
+            %td Actions
+
+    %tbody
+        - @works.each do |work|
+            %tr
+                %td #{work.name}
+                %td 
+                    = link_to work_path(work.id),class:"btn btn-primary" do 
+                        Show 
+                    

@@ -1,0 +1,41 @@
+<h2>Index of works</h2>
+
+.container
+    .row
+        .col-sm-8
+            %h3
+                Projects
+
+            %table.table.table-bordered
+                %thead
+                    %tr
+                        %td Title
+                        
+                        %td Actions
+
+                %tbody
+                    - @works.each do |work|
+                        %tr
+                            %td #{work.name}
+                            
+                            %td 
+                                = link_to work_path(work.id),class:"btn btn-primary" do 
+                                    Show 
+
+        .col-sm-4
+            %h3
+                All Categories
+            %ul.list-group
+                %li= link_to "All Projects", works_path, class: "list-group-item"
+                - Category.all.each do |category|
+                    %li= link_to  category.name, works_path(category: category.name), class: "list-group-item" 
+    
+
+
+
+        
+    %p
+        =link_to "New Tutorial", new_work_path,class:"btn btn-default"
+    %p
+        =will_paginate @task, renderer: BootstrapPagination::Rails,previous_label:"Newer", next_label: "Older", inner_window: 1, outer_window: 0 
+

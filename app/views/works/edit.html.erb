@@ -1,0 +1,7 @@
+<h1>Editing <%= @work.name%></h1>
+
+<%= render 'form', task: @work %>
+<div class="btn-group">
+    <%= link_to 'Show', @work,class:"btn btn-info" %> 
+    <%= link_to 'Back', works_path ,class:"btn btn-info"%>
+</div>

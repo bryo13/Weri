@@ -1,0 +1,73 @@
+<h2><%=@work.name %></br>
+
+Average rating
+ <div class="star-rating" data-score= <%= @avg_review %> ></div>
+        <em><%= "#{@comments.length} ratings" %></em>
+
+<div class="container">
+  <div class="row">
+  
+    <div class="col-xm-7">
+
+
+      <p>Available <%= "Attachment".pluralize(@work.attaches.count)%></p>
+        <% @work.attaches.each do |attach| %>
+          <% if attach.variable? %>
+          
+            <%= link_to image_tag(attach.variant(resize: "250x250")),attach%>
+          <% elsif attach.previewable?%>
+            <h3>Video Content</h3>
+            <%= link_to image_tag(attach.preview(resize: "250x250")),rails_blob_path(attach, disposition: :attachment)%>
+          <% else %>
+            <%= link_to attach.filename,rails_blob_path(attach, disposition: :attachment)%>
+          <% end %>
+          <% end %>
+
+      
+        <p>
+          <div class="btn-group">
+            <%= link_to "Back",works_path, class:"btn btn-default"%>
+            <% if current_user = user_signed_in?%>
+            <%= link_to "Delete",@work_path,method: :delete,
+              data:{confirm:"Are you sure you want to delete #{@work.name}"},
+              class:"btn btn-danger" %>
+           
+            <%= link_to 'Edit', edit_work_path(@work),class:"btn btn-default" %>
+            <% end %>
+          </div>
+        </p>
+
+        </div> 
+
+
+        <div class="col-xm-5">
+<br>
+        <section class="section_comments">
+          
+          <h3>Your thoughts</h3>
+          <div class="comment">
+            
+            <%= render partial: 'comments/comment', collection: @work.comments %>
+            <h4>Comment and Rate</h4>
+            <div class="reviews">
+              
+            <%= render partial: 'comments/form' %>
+          </div>
+        </section>  
+        </div>
+      <div>
+    </div>
+
+
+
+
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

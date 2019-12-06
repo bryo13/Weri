@@ -1,0 +1,16 @@
+<%= bootstrap_form_for ([@work, @work.comments.build]) do |f|%>
+ <div class="field">
+    <div id="star-rating"></div>
+  </div>
+    <%= f.text_area :body,label:"Your opinion"%>
+ 
+    <%= f.submit%>
+<% end %>
+
+
+<script>
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'comment[rating]'
+  });
+</script>

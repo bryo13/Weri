@@ -1,0 +1,23 @@
+.right-menu li {
+	display: inline-block;
+	margin-top:30px !important;
+}
+
+.right-menu li .fa {
+	font-size: 18px;
+	cursor: pointer;
+	text-align: right;
+	justify-content: space-between;
+	display: flex;
+}
+
+.navbar navbar-default{
+	display: inline;
+	padding: 0 35px !important;
+}
+
+.collapse navbar-collapse {
+	border: none !important;
+	outline: none !important;
+	padding: 30px;
+}

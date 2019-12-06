@@ -1,0 +1,92 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+
+.banner-img{
+    margin: 80px 115px;
+    width: 60%;
+}
+
+.banner-img img {
+    width: 100%;
+    margin-bottom: -50px;
+
+}
+
+.banner {
+    position: relative;
+        
+}
+
+.banner-title {
+    position: absolute;
+    left: 50%;
+    top: 50%
+}
+
+.banner-title h1 {
+    font-size: 55px;
+    background: rgba(0, 0, 0,0.75 );
+    color: #fff;
+    line-height: 70px; 
+    padding: 0 10px 0 10px;
+}
+
+.weri-new {
+    padding: 100px 0;
+}
+
+.weri-weri-newbox {
+    margin: 80px 0;
+}
+
+.title-style h1 {
+    padding: 40px 0;
+}
+
+.title-style {
+    margin: 0 auto 85px;
+    height: 120px;
+    width: 80%;
+    max-width: 700px;
+    background: #fff;
+    position: relative;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 50, 0.5);
+}
+
+.title-style::after {
+    content: "";
+    height: 100px;
+    width: 290px;
+    background-color: #f992a6;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    z-index: -1;
+}
+
+.title-style::before {
+    content: "";
+    height: 100px;
+    width: 290px;
+    background-color: #f992a6;
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    z-index: -1;
+}
+
+.home{
+    position: relative;
+    opacity: 0.70;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.home home_img {
+    min-height: 680px;
+}

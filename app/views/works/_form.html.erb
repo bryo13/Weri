@@ -1,0 +1,19 @@
+<%= bootstrap_form_for (@work) do |f| %>
+  <%= render 'shared/work_error'%>
+
+  <div class="field">
+     <%= f.text_field :name %>
+  </div>
+
+   <%= f.label :Select_Category %></p>
+    <%=f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a resource"} %>
+  </div>
+
+  <div class="field">
+     <%= f.file_field :attaches,multiple: true,direct_upload: true %>
+  </div>
+  
+  <div class="btn-group">
+    <%= f.submit "Create Work", class: "btn btn-primary"%>
+  </div>
+<% end %>

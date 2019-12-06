@@ -1,0 +1,9 @@
+<% if @works.present? %>
+    <%= render 'work'%>
+<%else%>
+    <p>
+        There are no projects containing the term(s) <%= params[:search] %>.</p>
+
+</p>
+
+<% end%>
